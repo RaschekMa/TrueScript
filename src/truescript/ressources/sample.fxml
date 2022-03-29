@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="truescript.controller.Controller">
+   <center>
+      <AnchorPane>
+         <children>
+            <AnchorPane fx:id="pane_options" prefHeight="636.0" prefWidth="998.0" style="-fx-background-color: #f0f8ff;">
+               <children>
+                  <Label alignment="CENTER" layoutX="433.0" layoutY="14.0" text="Optionen">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="89.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#onClickOpenFileChooser" prefHeight="26.0" prefWidth="150.0" text="Speicherpfad wählen" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pane_pruef" prefHeight="636.0" prefWidth="998.0" style="-fx-background-color: #f0f8ff;">
+               <children>
+                  <Label alignment="CENTER" layoutX="372.0" layoutY="14.0" prefHeight="47.0" prefWidth="255.0" text="Prüfungsmodus" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pane_calc" prefHeight="636.0" prefWidth="998.0" style="-fx-background-color: #f0f8ff;">
+               <children>
+                  <TextArea fx:id="mainConsole" editable="false" layoutX="683.0" layoutY="28.0" prefHeight="556.0" prefWidth="250.0" AnchorPane.rightAnchor="33.0" />
+                  <Button layoutX="922.0" layoutY="601.0" mnemonicParsing="false" onMouseClicked="#onClickClear" text="Clear" />
+                  <TextField fx:id="mainInput" layoutX="14.0" layoutY="28.0" prefHeight="25.0" prefWidth="382.0" />
+                  <Button layoutX="419.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#onClickGenerate" text="Generate" />
+                  <ChoiceBox fx:id="count" layoutX="507.0" layoutY="28.0" prefHeight="25.0" prefWidth="43.0" />
+                  <CheckBox fx:id="checkBoxOR" layoutX="507.0" layoutY="60.0" mnemonicParsing="false" selected="true" text="∨" />
+                  <ChoiceBox fx:id="length" layoutX="567.0" layoutY="28.0" prefHeight="25.0" prefWidth="103.0" />
+                  <CheckBox fx:id="checkBoxAND" layoutX="507.0" layoutY="84.0" mnemonicParsing="false" selected="true" text="∧" />
+                  <CheckBox fx:id="checkBoxXNOR" layoutX="567.0" layoutY="60.0" mnemonicParsing="false" selected="true" text="↔" />
+                  <CheckBox fx:id="checkBoxIMP" layoutX="567.0" layoutY="84.0" mnemonicParsing="false" selected="true" text="→" />
+                  <Label layoutX="508.0" layoutY="6.0" prefHeight="17.0" prefWidth="43.0" text="Anzahl" />
+                  <Label layoutX="570.0" layoutY="6.0" prefHeight="17.0" prefWidth="43.0" text="Länge" textAlignment="CENTER" />
+                  <GridPane fx:id="grid" gridLinesVisible="true" layoutX="14.0" layoutY="60.0" prefHeight="150.0" prefWidth="250.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="calcP" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text="p" />
+                        <Button fx:id="calcQ" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text="q" GridPane.columnIndex="1" />
+                        <Button fx:id="calcOR" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text="OR" GridPane.rowIndex="1" />
+                        <Button fx:id="calcAND" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text="AND" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="calcR" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text="r" GridPane.columnIndex="2" />
+                        <Button fx:id="calcXNOR" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text="XNOR" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button fx:id="calcS" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text="s" GridPane.columnIndex="3" />
+                        <Button fx:id="calcIMP" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text="IMP" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button fx:id="calcOpen" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text="(" GridPane.rowIndex="2" />
+                        <Button fx:id="calcClose" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text=")" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="calcClear" mnemonicParsing="false" onMouseClicked="#onClickClearInput" prefHeight="96.0" prefWidth="103.0" text="CLEAR" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="calcCalc" mnemonicParsing="false" onMouseClicked="#onClickOutput" prefHeight="96.0" prefWidth="103.0" text="CALC" GridPane.columnIndex="4" />
+                        <Button fx:id="calcS1" mnemonicParsing="false" onMouseClicked="#onClickGetValue" prefHeight="96.0" prefWidth="103.0" text="NOT" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button fx:id="calcS2" mnemonicParsing="false" prefHeight="96.0" prefWidth="103.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Button fx:id="calcS3" mnemonicParsing="false" onMouseClicked="#onClickClearLastInput" prefHeight="96.0" prefWidth="103.0" text="DEL" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <TextArea fx:id="resultArea" editable="false" layoutX="611.0" layoutY="125.0" prefHeight="458.0" prefWidth="59.0" />
+                  <TextArea fx:id="matrixArea" editable="false" layoutX="488.0" layoutY="125.0" prefHeight="458.0" prefWidth="109.0" />
+                  <Button layoutX="804.0" layoutY="601.0" mnemonicParsing="false" onMouseClicked="#onClickSaved" text="Formel Speichern" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pane_archive" prefHeight="636.0" prefWidth="998.0" style="-fx-background-color: #f0f8ff;">
+               <children>
+                  <Label alignment="CENTER" layoutX="423.0" layoutY="14.0" prefHeight="46.0" prefWidth="153.0" text="Archiv" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <TabPane layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="961.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="AND">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="927.0">
+                                 <children>
+                                    <TextArea prefHeight="485.0" prefWidth="962.0" text="Ist ein Gatter mit mehreren Eingängen und einem Ausgang, bei dem der Ausgang eine 1 liefert,&#10;wenn an allen Eingängen 1 anliegt. Es entspricht dem Logischen UND (AND). &#10;In der Schaltalgebra wird die UND (AND)-Verknüpfung durch • (Mal), &amp; oder ∧ dargestellt &#10;und wird auch als Konjunktion bezeichnet. &#10;&#10;&#10;&#10;" />
+                                    <ImageView fitHeight="278.0" fitWidth="185.0" layoutX="762.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@pics/and.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="NAND">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea prefHeight="485.0" prefWidth="961.0" text="Ein NAND-Gatter (von englisch: not and – nicht und) ist ein Logikgatter mit zwei oder mehr &#10;Eingängen A, B, … und einem Ausgang Y, zwischen denen die logische Verknüpfung NICHT UND besteht. &#10;Ein NAND-Gatter gibt am Ausgang 0 aus, wenn alle Eingänge 1 sind.&#10; In allen anderen Fällen, d. h., wenn mindestens ein Eingang 0 ist, wird eine 1 ausgegeben. " />
+                                    <ImageView fitHeight="221.0" fitWidth="185.0" layoutX="762.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@pics/nand.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="OR">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea prefHeight="485.0" prefWidth="961.0" text="Ein Oder-Gatter (OR) ist ein Gatter mit mehreren Eingängen und einem Ausgang,&#10;bei dem der Ausgang eine 1 liefert, wenn an mindestens einem Eingang eine 1 anliegt. &#10;Es entspricht dem Logischen ODER. In der Schaltalgebra wird die Oder-Verknüpfung &#10;durch + oder ∨ {\displaystyle \lor } {\displaystyle \lor } (Ursprung ist das lat. Wort „vel“ (oder)) &#10;dargestellt und wird auch als Disjunktion bezeichnet." />
+                                    <ImageView fitHeight="278.0" fitWidth="185.0" layoutX="762.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@pics/or.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="NOR">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea prefHeight="485.0" prefWidth="961.0" text="Ein NOR-Gatter (von englisch: not or – nicht oder, oder von englisch nor – (weder – ) noch; &#10;auch Peirce-Funktion nach Charles S. &#10;Peirce genannt) ist ein Logikgatter mit zwei oder mehr Eingängen A, B, … und einem Ausgang Y, &#10;zwischen denen die logische Verknüpfung NICHT ODER besteht. &#10;Ein NOR-Gatter gibt am Ausgang 1 (w) aus, wenn alle Eingänge 0 (f) sind. &#10;In allen anderen Fällen, d. h. wenn mindestens ein Eingang 1 ist, wird eine 0 ausgegeben." />
+                                    <ImageView fitHeight="278.0" fitWidth="185.0" layoutX="762.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@pics/nor.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="NOT">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea prefHeight="485.0" prefWidth="961.0" text="Ein Nicht-Gatter (englisch: NOT gate), auch als Komplement-Gatter oder Invertierer bezeichnet, &#10;ist ein Gatter mit einem Eingang und einem Ausgang. &#10;Es entspricht dem logischen Nicht. In der Aussagenlogik wird das Komplement durch ein ¬ vor, &#10;in der Schaltalgebra durch einen Querstrich über den entsprechenden Symbolen dargestellt. " />
+                                    <ImageView fitHeight="186.0" fitWidth="72.0" layoutX="875.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@pics/not.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="XOR">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea prefHeight="485.0" prefWidth="961.0" text="Ein Exklusiv-Oder-Gatter, auch XOR-Gatter (von englisch eXclusive OR ‚exklusives Oder‘, „entweder oder“) &#10;ist ein Gatter mit zwei Eingängen und einem Ausgang, bei dem der Ausgang logisch „1“ ist, &#10;wenn an nur einem Eingang „1“ anliegt und an dem anderen „0“. Die Exklusiv-Oder-Verknüpfung &#10;wird auch als Anti- oder Kontravalenz bezeichnet.&#10;&#10;Das bedeutet, dass die Eingänge verschieden beschaltet sein müssen, &#10;um am Ausgang eine „1“ zu erhalten. Entweder an dem einen &#10;oder am anderen Eingang muss „1“ anliegen. Im Unterschied zu einer einfachen &#10;OR-Verknüpfung gilt die Bedingung als nicht erfüllt, wenn an beiden Eingängen eine „1“ anliegt. &#10;Bei Exklusiv-Oder ist das Ergebnis in diesem Fall eine „0“. " />
+                                    <ImageView fitHeight="278.0" fitWidth="185.0" layoutX="762.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@pics/xor.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="XNOR">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea prefHeight="485.0" prefWidth="961.0" text="Ein XNOR-Gatter (engl. eXclusive NOT OR) ist ein Logikgatter, bei dem am Ausgang eine &#10;logische „1“ anliegt, wenn an einer geraden Anzahl von Eingängen „1“ anliegt und an &#10;den restlichen „0“. Im Fall von zwei Eingängen liegt am Ausgang also „1“ an, &#10;wenn an beiden Eingängen „1“ oder an beiden Eingängen „0“ anliegt &#10;(im zweiten Fall liegt an null Eingängen „1“ an, und 0 zählt als gerade Zahl). &#10;Die XNOR-Verknüpfung wird auch als Äquivalenz, Biimplikation oder Bikonditional bezeichnet. &#10;Es bildet zusammen mit dem XOR einen booleschen Ring ab, so wie AND mit OR und NAND mit NOR." />
+                                    <ImageView fitHeight="278.0" fitWidth="185.0" layoutX="762.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@pics/xnor.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f0f8ff;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btn_archive" layoutX="40.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="120.0" text="Junktoren" AnchorPane.topAnchor="75.0" />
+            <Button layoutX="40.0" layoutY="609.0" mnemonicParsing="false" onMouseClicked="#onClickExit" prefHeight="40.0" prefWidth="120.0" text="Exit" AnchorPane.bottomAnchor="25.0" />
+            <Button fx:id="btn_calc" layoutX="40.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="120.0" text="Lernmodus" AnchorPane.topAnchor="150.0" />
+            <Button fx:id="btn_pruef" layoutX="40.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="120.0" text="Prüfungsmodus" AnchorPane.topAnchor="225.0" />
+            <Button fx:id="btn_options" layoutX="40.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="120.0" text="Optionen" AnchorPane.topAnchor="300.0" />
+            <Label alignment="CENTER" prefHeight="63.0" prefWidth="200.0" text="TrueScript" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
