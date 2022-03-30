@@ -1,3 +1,3 @@
 # TrueScript
 
-JavaFX Application, which solves propsitional formulas. It can also create random formulas.
+JavaFX Application, which solves propositional formulas. It can also create random formulas.
